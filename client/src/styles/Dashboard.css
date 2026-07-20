@@ -1,0 +1,25 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+.dashboard h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.dashboard button {
+    width: 250px;
+    height: 60px;
+    font-size: 22px;
+    margin: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

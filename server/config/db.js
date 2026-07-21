@@ -2,12 +2,20 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/websitebuilder";
+
+        await mongoose.connect(mongoUri, {
+            serverSelectionTimeoutMS: 5000,
+        });
+
         console.log("✅ MongoDB Connected");
     } catch (err) {
-        console.log("❌ Database Connection Failed");
+        console.log("⚠️ Database Connection Failed");
         console.log(err.message);
-        process.exit(1);
+
+        if (process.env.NODE_ENV !== "production") {
+            process.exit(1);
+        }
     }
 };
 

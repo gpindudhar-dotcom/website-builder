@@ -7,6 +7,8 @@ import Canvas from '../components/Canvas';
 import PropertiesPanel from '../components/PropertiesPanel';
 import Toolbar from '../components/Toolbar';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function Editor() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,7 +43,7 @@ function Editor() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/websites',
+        `${API_BASE_URL}/api/websites`,
         {
           title: siteTitle || 'My Website',
           template: template || 'Custom',
@@ -106,7 +108,7 @@ function Editor() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/websites/publish',
+        `${API_BASE_URL}/api/websites/publish`,
         {
           title: siteTitle || 'My Website',
           template: template || 'Custom',
@@ -128,14 +130,14 @@ function Editor() {
 
       const publishedUrl = response.data?.publishedUrl || '';
       setSaveMessage(`Your site is live at ${publishedUrl || 'the published URL'}.`);
-      window.open(`http://localhost:5000${publishedUrl}`, '_blank', 'noopener,noreferrer');
+      window.open(`${API_BASE_URL}${publishedUrl}`, '_blank', 'noopener,noreferrer');
     } catch (err) {
       setSaveMessage('Publishing failed. Please sign in and try again.');
     }
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%)' }}>
       <Toolbar onSave={saveWebsite} onPreview={handlePreview} onPublish={handlePublish} viewMode={viewMode} setViewMode={setViewMode} />
       <div style={{ padding: '16px 20px 0' }}>
         <label htmlFor="site-title" style={{ fontWeight: 700, display: 'block', marginBottom: '8px' }}>Site Title</label>
@@ -144,9 +146,9 @@ function Editor() {
           aria-label="Site title"
           value={siteTitle}
           onChange={(event) => setSiteTitle(event.target.value)}
-          style={{ width: '100%', maxWidth: '420px', padding: '10px 12px', borderRadius: '10px', border: '1px solid #cbd5e1' }}
+          style={{ width: '100%', maxWidth: '420px', padding: '10px 12px', borderRadius: '10px', border: '1px solid rgba(148, 163, 184, 0.25)', background: 'rgba(15, 23, 42, 0.78)', color: '#f8fafc' }}
         />
-        {saveMessage && <p style={{ color: '#2563eb', marginTop: '8px' }}>{saveMessage}</p>}
+        {saveMessage && <p style={{ color: '#c4b5fd', marginTop: '8px' }}>{saveMessage}</p>}
       </div>
       <div style={{ display: 'flex', minHeight: 'calc(100vh - 140px)' }}>
         <Sidebar addComponent={addComponent} />

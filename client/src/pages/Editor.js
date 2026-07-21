@@ -7,7 +7,7 @@ import Canvas from '../components/Canvas';
 import PropertiesPanel from '../components/PropertiesPanel';
 import Toolbar from '../components/Toolbar';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || ' https://website-builder-2x99.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL || ' website-builder-2x99:5000';
 
 function Editor() {
   const navigate = useNavigate();

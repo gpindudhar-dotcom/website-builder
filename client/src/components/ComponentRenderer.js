@@ -31,14 +31,14 @@ function ComponentRenderer({ component, index, selectedIndex, setSelectedIndex, 
         );
       case 'about':
         return (
-          <section style={{ ...commonStyle, padding: '48px 24px', background: component.style?.background || 'linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(30, 41, 59, 0.92))' }}>
+          <section style={{ ...commonStyle, padding: '48px 24px', background: component.style?.background || 'linear-gradient(145deg, rgba(92, 116, 167, 0.96), rgba(104, 120, 145, 0.92))' }}>
             <h2 style={{ fontSize: '28px', margin: '0 0 12px', color: component.style?.color || canvasTheme.textPrimary, fontWeight: 800 }}>{component.text}</h2>
             <p style={{ fontSize: '16px', lineHeight: 1.7, margin: '0', color: component.style?.color ? component.style.color : canvasTheme.textSecondary }}>{component.subtext}</p>
           </section>
         );
       case 'services':
         return (
-          <section style={{ ...commonStyle, padding: '48px 24px', background: component.style?.background || 'linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(30, 41, 59, 0.92))' }}>
+          <section style={{ ...commonStyle, padding: '48px 24px', background: component.style?.background || 'linear-gradient(145deg, rgba(98, 113, 145, 0.96), rgba(30, 41, 59, 0.92))' }}>
             <h2 style={{ fontSize: '28px', margin: '0 0 12px', color: component.style?.color || canvasTheme.textPrimary, fontWeight: 800 }}>{component.text}</h2>
             <p style={{ fontSize: '16px', lineHeight: 1.7, margin: '0', color: component.style?.color ? component.style.color : canvasTheme.textSecondary }}>{component.subtext}</p>
           </section>
